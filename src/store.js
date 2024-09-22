@@ -45,16 +45,16 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 const authSlice = createSlice({
   name: "auth",
   // initialState: savedAuthState,
-  initialState: { isLoggedIn: false, username: null },
+  initialState: { isLoggedIn: false, userid: null },
   reducers: {
     login: (state, action) => {
       state.isLoggedIn = true;
-      state.username = action.payload;
+      state.userid = action.payload;
       localStorage.setItem("auth", JSON.stringify(state));
     },
     logout: (state) => {
       state.isLoggedIn = false;
-      state.username = null;
+      state.userid = null;
       localStorage.removeItem("auth");
     },
   },

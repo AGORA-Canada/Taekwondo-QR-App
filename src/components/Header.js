@@ -3,9 +3,8 @@ import Logo from "../assets/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Header = ({ openQRModal }) => {
+const Header = ({ openQRViewerModal, openQRReaderModal, userType }) => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-
   const location = useLocation();
 
   return (
@@ -17,12 +16,22 @@ const Header = ({ openQRModal }) => {
         {location.pathname !== "/login" &&
           (isLoggedIn ? (
             <>
-              <button
-                onClick={openQRModal}
-                className="bg-primary text-white px-4 py-2 rounded"
-              >
-                My QR
-              </button>
+              {userType === "customer" && (
+                <button
+                  onClick={openQRViewerModal}
+                  className="bg-primary text-white px-4 py-2 rounded"
+                >
+                  My QR
+                </button>
+              )}
+              {userType === "store" && (
+                <button
+                  onClick={openQRReaderModal}
+                  className="bg-primary text-white px-4 py-2 rounded"
+                >
+                  Open Scanner
+                </button>
+              )}
             </>
           ) : (
             <Link
