@@ -18,14 +18,14 @@ const Header = () => {
           (isLoggedIn ? (
             <Link
               to="/myQR"
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-primary text-white px-4 py-2 rounded"
             >
               My QR
             </Link>
           ) : (
             <Link
               to="/login"
-              className="bg-blue-500 text-white px-4 py-2 rounded"
+              className="bg-primary text-white px-4 py-2 rounded"
             >
               Login
             </Link>
