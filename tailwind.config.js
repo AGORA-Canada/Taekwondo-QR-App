@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        theme_red: "#D60E23", // 예시: primary 색상
+        theme_red: "#D60E23",
         primary: "#091CA3",
       },
     },

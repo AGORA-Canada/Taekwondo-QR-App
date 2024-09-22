@@ -1,11 +1,11 @@
 import React from "react";
 import Logo from "../assets/logo.png";
-
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-const Header = () => {
+const Header = ({ openQRModal }) => {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
   const location = useLocation();
 
   return (
@@ -16,12 +16,14 @@ const Header = () => {
         </Link>
         {location.pathname !== "/login" &&
           (isLoggedIn ? (
-            <Link
-              to="/myQR"
-              className="bg-primary text-white px-4 py-2 rounded"
-            >
-              My QR
-            </Link>
+            <>
+              <button
+                onClick={openQRModal}
+                className="bg-primary text-white px-4 py-2 rounded"
+              >
+                My QR
+              </button>
+            </>
           ) : (
             <Link
               to="/login"

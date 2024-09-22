@@ -9,17 +9,42 @@ const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     dispatch(login(username));
-    navigate.push("/");
+    navigate("/");
+    // try {
+    //   const response = await fetch("/api/login", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       username,
+    //       password,
+    //     }),
+    //   });
+
+    //   const data = await response.json();
+
+    //   if (data.success) {
+    //     // Save token to local storage
+    //     localStorage.setItem("token", data.token);
+    //     dispatch(login(username)); // Update Redux store state
+    //     navigate("/"); // Redirect to home page
+    //   } else {
+    //     // setError(data.message || "Invalid username or password.");
+    //   }
+    // } catch (error) {
+    //   // setError("Login failed. Please try again.");
+    // }
   };
 
   return (
     <div className="flex items-center justify-center h-[80%] bg-gray-100">
       <div className="bg-white p-8 rounded shadow-md w-80">
         <h3 className="text-xl mb-4 text-center">Login</h3>
-        <form className="space-y-4" onSubmit={handleSubmit}>
+        <form className="space-y-4" onSubmit={handleLogin}>
           <input
             type="text"
             placeholder="Username"

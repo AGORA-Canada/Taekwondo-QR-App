@@ -1,11 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 
 const LandingPage = () => {
-  //   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  //   const username = useSelector((state) => state.auth.username);
-
   return (
     <>
       <div className="flex justify-around mb-4">
