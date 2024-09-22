@@ -21,7 +21,7 @@ function App() {
       <Router>
         <div className="flex flex-col h-screen bg-gray-100">
           <Header openQRModal={openQRModal} />
-          <main className="flex-grow p-4  overflow-auto">
+          <main className="flex-grow p-4 overflow-auto">
             <Routes>
               <Route exact path="/" element={<LandingPage />} />
               <Route path="/login" element={<LoginPage />} />
